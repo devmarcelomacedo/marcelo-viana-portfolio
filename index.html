@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcelo Viana Macedo - Portfólio Profissional</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #0ea5e9;
+            --primary-hover: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-contact {
+            background-color: var(--primary);
+            color: #fff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            color: var(--primary);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.025em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp {
+            background-color: #059669;
+            color: white;
+        }
+        .btn-whatsapp:hover {
+            background-color: #047857;
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            background-color: #334155;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        /* About Card */
+        .about-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        /* Competencies Grid */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .badge-tag {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .timeline-company {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Education & Courses */
+        .education-highlight {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, var(--bg-card) 100%);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .edu-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            background: rgba(14, 165, 233, 0.1);
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .course-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .course-item span.icon {
+            color: var(--primary);
+            font-weight: bold;
+            margin-top: 0.1rem;
+        }
+
+        .course-item strong {
+            display: block;
+            color: #fff;
+            margin-bottom: 0.15rem;
+        }
+
+        .course-item span.inst {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Contact Footer */
+        .contact-section {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .contact-cards {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2.5rem 0;
+        }
+
+        .contact-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: border-color 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+        }
+
+        .contact-card div span {
+            display: block;
+            text-align: left;
+        }
+
+        .contact-card small {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media(max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .education-highlight {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                💻 Marcelo Viana Macedo
+            </a>
+            <button class="menu-toggle" id="menu-btn">☰</button>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#competencias">Competências</a></li>
+                    <li><a href="#experiencia">Experiência</a></li>
+                    <li><a href="#formacao">Formação & Cursos</a></li>
+                    <li><a href="#contato" class="btn-contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            ✓ Analista de Suporte Pleno & Tecnólogo em ADS
+        </div>
+        <h1>
+            Infraestrutura de TI, Suporte Técnico Avançado & <span>Transformação em Nuvem</span>
+        </h1>
+        <p>
+            Profissional sênior com mais de 25 anos de experiência, certificado ITIL 4® Foundation[cite: 1, 2, 25], Oracle Cloud (OCI) & AI Foundations[cite: 1, 2, 38], unindo sólida base técnica à docência em hardware[cite: 1, 2].
+        </p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/5522988302170" target="_blank" class="btn btn-whatsapp">
+                💬 WhatsApp (22) 98830-2170
+            </a>
+            <a href="https://www.linkedin.com/in/marcelo-viana-macedo-ti/" target="_blank" class="btn btn-secondary">
+                🔗 LinkedIn
+            </a>
+            <a href="mailto:marceloleadriana@gmail.com" class="btn btn-secondary">
+                ✉️ E-mail
+            </a>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre">
+        <div class="section-title">
+            <h2>Sobre Mim</h2>
+            <p>Conheça minha trajetória e visão profissional</p>
+        </div>
+        <div class="about-card">
+            <p>
+                Analista de TI Pleno | Infraestrutura e Suporte Técnico | Certificado Oracle Cloud (OCI) & ITIL 4[cite: 1, 2]. Profissional com mais de 25 anos de experiência sólida no setor de Tecnologia da Informação, com foco em infraestrutura, montagem e manutenção de hardware, e suporte técnico avançado. Minha trajetória é marcada pela entrega de soluções técnicas resilientes e pela capacidade de resolver problemas críticos com agilidade.
+            </p>
+            <p>
+                Recentemente, concluí um ciclo de atualização tecnológica focado no ecossistema Oracle Cloud Infrastructure (OCI) e Inteligência Artificial, adquirindo fundamentos sólidos em ERP, HCM e Cibersegurança para acompanhar as novas demandas do mercado de nuvem.
+            </p>
+            <p>
+                Além da atuação técnica, possuo forte viés educacional como Professor de TI e Instrutor de Hardware, o que me permite comunicar conceitos complexos de forma clara para diferentes níveis de usuários e equipes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Competências -->
+    <section id="competencias" style="background: rgba(30, 41, 59, 0.4); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="section-title">
+            <h2>Principais Competências</h2>
+            <p>Pilares de atuação técnica e governança corporativa</p>
+        </div>
+        <div class="grid-4">
+            <div class="card">
+                <div class="card-icon">🖥️</div>
+                <h3>Suporte & Infraestrutura</h3>
+                <p>Experiência nível Pleno em manutenção de sistemas, hardware, redes de computadores e centrais de atendimento[cite: 1, 2].</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">☁️</div>
+                <h3>Fundamentos Cloud</h3>
+                <p>Conhecimento teórico e certificado em soluções Oracle (OCI, ERP, HCM, SCM, CX) e Microsoft Azure[cite: 1, 2, 3].</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Governança & Compliance</h3>
+                <p>Certificado ITIL 4 Foundation, LGPD, Cibersegurança e foco absoluto em compliance e normas corporativas[cite: 1, 2, 6, 7].</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👨‍🏫</div>
+                <h3>Docência Técnica</h3>
+                <p>Instrutor de Manutenção em microcomputadores e capacitação profissional com didática voltada a resultados[cite: 1, 2].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiência Profissional -->
+    <section id="experiencia">
+        <div class="section-title">
+            <h2>Experiência Profissional</h2>
+            <p>Histórico de atuação em grandes empresas e prestação de serviços</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Analista de Suporte Pleno / Técnico em Informática</h3>
+                    <span class="badge-tag">Experiência Consolidada</span>
+                </div>
+                <div class="timeline-company">Casa do Cartucho, Q@lity Digital Informática, Alma Viva do Brasil, Extra Mercado, Hotel da Costa[cite: 1, 2]</div>
+                <p>
+                    Atuação em suporte técnico avançado, manutenção preventiva e corretiva de hardware e microcomputadores, operação de centrais de atendimento, atendimento a clientes, e implantação de soluções de infraestrutura para alta disponibilidade corporativa.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Professor de Manutenção e Hardware</h3>
+                    <span class="badge-tag">Docência em TI</span>
+                </div>
+                <div class="timeline-company">Q@lity Digital Informática & Instituições de Ensino[cite: 2]</div>
+                <p>
+                    Ministração de aulas práticas e teóricas de montagem e manutenção de microcomputadores, redes locais e capacitação técnica de novos profissionais para o mercado de trabalho.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formação e Cursos (34 Cursos) -->
+    <section id="formacao" style="background: rgba(30, 41, 59, 0.4); border-top: 1px solid var(--border-color);">
+        <div class="section-title">
+            <h2>Formação & Cursos</h2>
+            <p>Formação acadêmica superior e portfólio completo de capacitações (34 Cursos)[cite: 1, 2]</p>
+        </div>
+
+        <!-- Graduação Estácio -->
+        <div class="education-highlight">
+            <div class="edu-icon">🎓</div>
+            <div>
+                <span class="badge-tag" style="margin-bottom: 0.5rem; display: inline-block;">Ensino Superior</span>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem;">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Universidade Estácio de Sá (Concluído em 30/06/2024 | Colação de Grau em 13/09/2024)[cite: 4].</p>
+            </div>
+        </div>
+
+        <!-- Lista de Cursos -->
+        <div class="max-w-5xl mx-auto" style="max-width: 1000px; margin: 0 auto;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">
+                📜 Certificações & Cursos Concluídos (34)
+            </h3>
+            <div class="courses-grid">
+                <div class="course-item"><span class="icon">🏆</span><div><strong>Oracle Cloud Infrastructure 2025 AI Foundations Associate</strong><span class="inst">Oracle University (21/04/2025)[cite: 38]</span></div></div>
+                <div class="course-item"><span class="icon">🏆</span><div><strong>Oracle Cloud Infrastructure 2023 Certified Foundations Associate</strong><span class="inst">Oracle University (23/09/2023)[cite: 37]</span></div></div>
+                <div class="course-item"><span class="icon">🏆</span><div><strong>Oracle Fusion Cloud ERP Certified Foundations Associate</strong><span class="inst">Oracle University (21/04/2025)[cite: 35]</span></div></div>
+                <div class="course-item"><span class="icon">🏆</span><div><strong>Oracle Fusion Cloud HCM Certified Foundations Associate</strong><span class="inst">Oracle University (23/04/2025)[cite: 36]</span></div></div>
+                <div class="course-item"><span class="icon">🏆</span><div><strong>Oracle Fusion Cloud SCM Certified Foundations Associate</strong><span class="inst">Oracle University (25/04/2025)[cite: 40]</span></div></div>
+                <div class="course-item"><span class="icon">🏆</span><div><strong>Oracle Fusion Cloud CX Certified Foundations Associate</strong><span class="inst">Oracle University (26/04/2025)[cite: 39]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>ITIL 4 Foundation eLearning course</strong><span class="inst">MindLuster (13/04/2025 - 1h)[cite: 25]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Certified in CyberSecurity</strong><span class="inst">MindLuster (16/04/2025 - 21h)[cite: 28]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Microsoft Azure Fundamentals (AZ-900)</strong><span class="inst">Microsoft Partner / Ka Solution (08/10/2022 - 8h)[cite: 15]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>LGPD - Lei Geral de Proteção de Dados Pessoais</strong><span class="inst">Qualifica Cursos (19/02/2023 - 5h - 100%)[cite: 26]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Governança Corporativa e Compliance</strong><span class="inst">Qualifica Cursos (19/02/2023 - 4h - 100%)[cite: 24]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Disseminador do Compliance 2024</strong><span class="inst">Trilha de Compliance[cite: 21]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>HTML5 e CSS3: Crie seu primeiro site</strong><span class="inst">Qualifica Cursos (04/01/2023 - 2h - 90%)[cite: 17]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Wireless Communication systems</strong><span class="inst">MindLuster (22/03/2025 - 1h)[cite: 18]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Skills for Web Analytics</strong><span class="inst">MindLuster (22/03/2025 - 1h)[cite: 16]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>01 - Introdução à Análise de Dados da Microsoft</strong><span class="inst">Escola do Trabalhador 4.0 (08/04/2026 - 3h - 100%)[cite: 11]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Jornada Python</strong><span class="inst">Hashtag Treinamentos (01/10/2026 - 8h)[cite: 42]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Python: Desenvolvimento Inteligente com IA</strong><span class="inst">Santander Open Academy (2025)[cite: 8]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>O que é IA Generativa</strong><span class="inst">Escola do Trabalhador 4.0 (06/04/2026 - 30min - 75%)[cite: 14]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>A História da IA & Evolução das Buscas Online</strong><span class="inst">Escola do Trabalhador 4.0 (17/04/2026)[cite: 12, 13]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Microsoft Excel 2016 Básico & Excel na Prática</strong><span class="inst">Fundação Bradesco (Junho/2026 - 31h total)[cite: 43, 44]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Introdução a Redes de Computadores</strong><span class="inst">Fundação Bradesco (13/07/2020 - 15h)[cite: 45]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Curso de CFTV (Aprenda uma Nova Profissão & GINEAD)</strong><span class="inst">Hotmart / GINEAD (Jan/2023 - Até 45h)[cite: 19, 20]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Conserto e Manutenção de Celular & Dispositivos Móveis</strong><span class="inst">Microlins (2018 - 55h)[cite: 22]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>ER, MIG, Maçarico e Lixadeira</strong><span class="inst">Escola Brasileira de Solda - EBS (2015 - 280h)[cite: 23]</span></div></div>
+                <div class="icon-item course-item"><span class="icon">📜</span><div><strong>Manutenção em Microcomputadores & Hardware</strong><span class="inst">Probyte / SENAC[cite: 7]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Redes e Conectividades & Informática Básica/Avançada</strong><span class="inst">SENAC SE (2011)[cite: 34]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Operador de Telemarketing & Operador de Microcomputador</strong><span class="inst">SENAC SE (110h total)[cite: 32, 33]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Aprender a Empreender & Atendimento ao Cliente</strong><span class="inst">SEBRAE On-line[cite: 2]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Seja Protagonista Neste Bootcamp</strong><span class="inst">Capacitação Profissional (17/05/2022 - 1h)[cite: 3]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Relacionamento com Terceiros & Compliance Universal</strong><span class="inst">Programa de Capacitação (11/01/2023)[cite: 27]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Segurança Patrimonial, Armada & ISPS Code</strong><span class="inst">Sacel / Normas Portuárias[cite: 7]</span></div></div>
+                <div class="course-item"><span class="icon">📜</span><div><strong>Oratória, 5S e Relações Humanas</strong><span class="inst">SENAC / Vale do Rio Doce[cite: 7]</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contact-section">
+        <div class="section-title" style="margin-bottom: 1.5rem;">
+            <h2>Vamos Trabalhar Juntos?</h2>
+            <p>Estou à disposição para novos desafios e oportunidades na área de TI.</p>
+        </div>
+        <div class="contact-cards">
+            <a href="https://wa.me/5522988302170" target="_blank" class="contact-card">
+                <span>💬</span>
+                <div>
+                    <small>WhatsApp</small>
+                    <span>(22) 98830-2170</span>
+                </div>
+            </a>
+            <a href="mailto:marceloleadriana@gmail.com" class="contact-card">
+                <span>✉️</span>
+                <div>
+                    <small>E-mail</small>
+                    <span>marceloleadriana@gmail.com</span>
+                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/marcelo-viana-macedo-ti/" target="_blank" class="contact-card">
+                <span>🔗</span>
+                <div>
+                    <small>LinkedIn</small>
+                    <span>marcelo-viana-macedo-ti</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Marcelo Viana Macedo. Todos os direitos reservados. Desenvolvido com padrão profissional e design responsivo.</p>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const navList = document.getElementById('nav-list');
+
+        menuBtn.addEventListener('click', () => {
+            navList.classList.toggle('show');
+        });
+
+        document.querySelectorAll('#nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
